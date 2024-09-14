@@ -9,11 +9,4 @@ import org.junit.jupiter.api.Test;
  */
 public class CodeGenTest {
 
-    /**
-     * Rigorous Test :-)
-     */
-    @Test
-    public void shouldAnswerWithTrue() {
-        assertTrue(true);
-    }
 }
