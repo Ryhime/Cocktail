@@ -1,4 +1,4 @@
-package Cocktail.Models;
+package Cocktail;
 
 /**
  * A class to represent a basic symbol in the symbol table
@@ -11,13 +11,13 @@ public class Symbol {
     private String name;
 
     // The value of the symbol
-    private int intValue = null;
-    private float floatValue = null;
-    private String stringValue = null;
-    private boolean booleanValue = null;
-    private char charValue = null;
-    private boolean isNull = false;
-    private boolean isUndefined = false;
+    private int intValue;
+    private float floatValue;
+    private String stringValue;
+    private boolean booleanValue;
+    private char charValue;
+    private boolean isNull;
+    private boolean isUndefined;
 
     //region Constructors
 
@@ -28,9 +28,9 @@ public class Symbol {
         this.variableType = variableType;
         this.name = name;
 
-        if (this.variableType === VariableType.NULL) {
+        if (this.variableType == VariableType.NULL) {
             this.isNull = true;
-        } else if (this.variableType === VariableType.UNDEFINED) {
+        } else if (this.variableType == VariableType.UNDEFINED) {
             this.isUndefined = true;
         }
     }
@@ -148,5 +148,36 @@ public class Symbol {
         return this.isUndefined;
     }
 
+    /**
+     * Gets the value of the symbol as a string
+     */
+    public String valueToString() {
+        switch (this.variableType) {
+            case INT:
+                return ""+this.intValue;
+            case FLOAT:
+                return ""+this.floatValue;
+            case STRING:
+                return this.stringValue;
+            case BOOLEAN:
+                return this.booleanValue ? "1" : "0";
+            case CHAR:
+                return ""+this.charValue;
+            case NULL:
+                return "0";
+            case UNDEFINED:
+                return "0";
+            default:
+                System.out.println("Symbol Type not found when getting symbol value");
+                return "";
+        }
+    }
+
+    /**
+     * Symbol To String
+     */
+    public String ToString() {
+        return this.variableType + ": " + this.name + " " + this.valueToString();
+    }
     //endregion
 }

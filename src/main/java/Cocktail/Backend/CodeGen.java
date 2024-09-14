@@ -25,9 +25,17 @@ public class CodeGen {
             System.out.println(e);
         }
 
+        // TODO: Replace with actual AST parse
         this.CreateAssemblyHeaderSection();
         this.CreateAssemblyTextSection();
+        this.CreateWriteSystemCall(1, "hello", 14);
+        this.CreateExitSystemCall(0);
+
         this.CreateAssemblyDataSection();
+        this.DeclareConstantValue(new Symbol(VariableType.STRING, "hello", "Hello, World!"));
+
+        // TODO - end
+
         try {
             this.fileWriter.close();
         }
@@ -59,13 +67,40 @@ public class CodeGen {
      */
     private void CreateAssemblyTextSection() {
         try {
-            this.fileWriter.write("\nsection .text\n");
+            this.fileWriter.write("\nsection .text:\n");
             this.fileWriter.write("_start:\n");
+        }
+        catch (Exception e) {
+            // Catch Error
+            System.out.println(e);
+        }
+    }
 
 
-            // Return a zero response
-            this.fileWriter.write("\tmov eax, 1\n");
-            this.fileWriter.write("\txor ebx, 0\n");
+    /**
+     * Writes a write system call to the assembly file
+     */
+    private void CreateWriteSystemCall(int fileDescriptor, String message, int messageLength) {
+        try {
+            this.fileWriter.write("\tmov eax, " + SystemCall.WRITE.getSystemCallNumber() + "\n");
+            this.fileWriter.write("\tmov ebx, " + fileDescriptor + "\n");
+            this.fileWriter.write("\tmov ecx, " + message + "\n");
+            this.fileWriter.write("\tmov edx, " + messageLength + "\n");
+            this.fileWriter.write("\tint 0x80\n");
+        }
+        catch (Exception e) {
+            // Catch Error
+            System.out.println(e);
+        }
+    }
+
+    /**
+     * Writes an exit system call to the assembly file
+     */
+    private void CreateExitSystemCall(int exitCode) {
+        try {
+            this.fileWriter.write("\tmov eax, " + SystemCall.EXIT.getSystemCallNumber() + "\n");
+            this.fileWriter.write("\tmov ebx, " + exitCode + "\n");
             this.fileWriter.write("\tint 0x80\n");
         }
         catch (Exception e) {
@@ -79,7 +114,7 @@ public class CodeGen {
      */
     private void CreateAssemblyDataSection() {
         try {
-            this.fileWriter.write("\nsection .data\n");
+            this.fileWriter.write("\nsection .data:\n");
         }
         catch (Exception e) {
             // Catch Error
@@ -87,9 +122,17 @@ public class CodeGen {
         }
     }
 
+    /**
+     * Declare a constant value in the data section
+     */
     private void DeclareConstantValue(Symbol symbol) {
-        
-        
+        try {
+            this.fileWriter.write("\t" + symbol.getName() + ": dd \"" + symbol.valueToString() + "\"\n");
+        }
+        catch (Exception e) {
+            // Catch Error
+            System.out.println(e);
+        }
     }
 
     /**
