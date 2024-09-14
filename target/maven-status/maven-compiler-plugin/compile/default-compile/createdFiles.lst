@@ -1,2 +1,6 @@
-Cocktail/CodeGen.class
+Cocktail/Symbol.class
 Cocktail/Main.class
+Cocktail/Symbol$1.class
+Cocktail/VariableType.class
+Cocktail/CodeGen.class
+Cocktail/SystemCall.class

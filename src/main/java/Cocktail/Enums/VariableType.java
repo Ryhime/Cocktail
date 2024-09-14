@@ -1,3 +1,5 @@
+package Cocktail;
+
 enum VariableType {
     INT,
     FLOAT,

@@ -4,10 +4,16 @@
 
 global _start
 
-section .text
+section .text:
 _start:
+	mov eax, 4
+	mov ebx, 1
+	mov ecx, hello
+	mov edx, 14
+	int 0x80
 	mov eax, 1
-	xor ebx, 0
+	mov ebx, 0
 	int 0x80
 
-section .data
+section .data:
+	hello: dd "Hello, World!"
