@@ -11,9 +11,16 @@ _start:
 	mov ecx, hello
 	mov edx, 14
 	int 0x80
+	mov eax, 4
+	mov ebx, 1
+	mov ecx, Character
+	mov edx, 1
+	int 0x80
 	mov eax, 1
 	mov ebx, 0
 	int 0x80
 
 section .data:
 	hello: dd "Hello, World!"
+	Integer: dd 5
+	Character: dd "a"

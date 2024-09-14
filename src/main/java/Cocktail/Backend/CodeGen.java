@@ -29,10 +29,13 @@ public class CodeGen {
         this.CreateAssemblyHeaderSection();
         this.CreateAssemblyTextSection();
         this.CreateWriteSystemCall(1, "hello", 14);
+        this.CreateWriteSystemCall(1, "Character", 1);
         this.CreateExitSystemCall(0);
 
         this.CreateAssemblyDataSection();
-        this.DeclareConstantValue(new Symbol(VariableType.STRING, "hello", "Hello, World!"));
+        this.DeclareConstantValue(new Symbol("hello", "Hello, World!"));
+        this.DeclareConstantValue(new Symbol("Integer", 5));
+        this.DeclareConstantValue(new Symbol("Character", 'a'));
 
         // TODO - end
 
@@ -127,7 +130,14 @@ public class CodeGen {
      */
     private void DeclareConstantValue(Symbol symbol) {
         try {
-            this.fileWriter.write("\t" + symbol.getName() + ": dd \"" + symbol.valueToString() + "\"\n");
+            String value;
+            if (symbol.getVariableType() == VariableType.STRING || symbol.getVariableType() == VariableType.CHAR) {
+                value = "\"" + symbol.valueToString() + "\"";
+            } else {
+                value = symbol.valueToString();
+            }
+
+            this.fileWriter.write("\t" + symbol.getName() + ": dd " + value + "\n");
         }
         catch (Exception e) {
             // Catch Error
