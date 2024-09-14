@@ -28,10 +28,31 @@ public class Symbol {
         this.variableType = variableType;
         this.name = name;
 
-        if (this.variableType == VariableType.NULL) {
-            this.isNull = true;
-        } else if (this.variableType == VariableType.UNDEFINED) {
-            this.isUndefined = true;
+        switch (variableType) {
+            case INT:
+                this.intValue = 0;
+                break;
+            case FLOAT:
+                this.floatValue = 0;
+                break;
+            case STRING:
+                this.stringValue = "";
+                break;
+            case BOOLEAN:
+                this.booleanValue = false;
+                break;
+            case CHAR:
+                this.charValue = '\0';
+                break;
+            case NULL:
+                this.isNull = true;
+                break;
+            case UNDEFINED:
+                this.isUndefined = true;
+                break;
+            default:
+                System.out.println("Symbol Type not found when creating symbol");
+                break;
         }
     }
 
@@ -174,7 +195,7 @@ public class Symbol {
     /**
      * Symbol To String
      */
-    public String ToString() {
+    public String toString() {
         return this.variableType + ": " + this.name + " " + this.valueToString();
     }
     //endregion

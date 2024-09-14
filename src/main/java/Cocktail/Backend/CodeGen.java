@@ -26,16 +26,16 @@ public class CodeGen {
         }
 
         // TODO: Replace with actual AST parse
-        this.CreateAssemblyHeaderSection();
-        this.CreateAssemblyTextSection();
-        this.CreateWriteSystemCall(1, "hello", 14);
-        this.CreateWriteSystemCall(1, "Character", 1);
-        this.CreateExitSystemCall(0);
+        this.createAssemblyHeaderSection();
+        this.createAssemblyTextSection();
+        this.createWriteSystemCall(1, "hello", 14);
+        this.createWriteSystemCall(1, "Character", 1);
+        this.createExitSystemCall(0);
 
-        this.CreateAssemblyDataSection();
-        this.DeclareConstantValue(new Symbol("hello", "Hello, World!"));
-        this.DeclareConstantValue(new Symbol("Integer", 5));
-        this.DeclareConstantValue(new Symbol("Character", 'a'));
+        this.createAssemblyDataSection();
+        this.declareConstantValue(new Symbol("hello", "Hello, World!"));
+        this.declareConstantValue(new Symbol("Integer", 5));
+        this.declareConstantValue(new Symbol("Character", 'a'));
 
         // TODO - end
 
@@ -46,13 +46,13 @@ public class CodeGen {
             // Catch Error
             System.out.println(e);
         }
-        this.AsmToObject();
+        this.asmToObject();
     }
 
     /**
      * Writes the header to the assembly file
      */
-    private void CreateAssemblyHeaderSection() {
+    private void createAssemblyHeaderSection() {
         try {
             // Write Header
             this.fileWriter.write("; Starting Header\n");
@@ -68,7 +68,7 @@ public class CodeGen {
     /**
      * Writes the main text section to the assembly file
      */
-    private void CreateAssemblyTextSection() {
+    private void createAssemblyTextSection() {
         try {
             this.fileWriter.write("\nsection .text:\n");
             this.fileWriter.write("_start:\n");
@@ -83,7 +83,7 @@ public class CodeGen {
     /**
      * Writes a write system call to the assembly file
      */
-    private void CreateWriteSystemCall(int fileDescriptor, String message, int messageLength) {
+    private void createWriteSystemCall(int fileDescriptor, String message, int messageLength) {
         try {
             this.fileWriter.write("\tmov eax, " + SystemCall.WRITE.getSystemCallNumber() + "\n");
             this.fileWriter.write("\tmov ebx, " + fileDescriptor + "\n");
@@ -100,7 +100,7 @@ public class CodeGen {
     /**
      * Writes an exit system call to the assembly file
      */
-    private void CreateExitSystemCall(int exitCode) {
+    private void createExitSystemCall(int exitCode) {
         try {
             this.fileWriter.write("\tmov eax, " + SystemCall.EXIT.getSystemCallNumber() + "\n");
             this.fileWriter.write("\tmov ebx, " + exitCode + "\n");
@@ -115,7 +115,7 @@ public class CodeGen {
     /**
      * Writes the data section to the assembly file
      */
-    private void CreateAssemblyDataSection() {
+    private void createAssemblyDataSection() {
         try {
             this.fileWriter.write("\nsection .data:\n");
         }
@@ -128,7 +128,7 @@ public class CodeGen {
     /**
      * Declare a constant value in the data section
      */
-    private void DeclareConstantValue(Symbol symbol) {
+    private void declareConstantValue(Symbol symbol) {
         try {
             String value;
             if (symbol.getVariableType() == VariableType.STRING || symbol.getVariableType() == VariableType.CHAR) {
@@ -148,7 +148,7 @@ public class CodeGen {
     /**
      * Converts an ASM file to an object file and runs it by calling the sh file
      */
-    private void AsmToObject() {
+    private void asmToObject() {
         try {
             // Create object file
             String[] runBashCommand = new String[] {
