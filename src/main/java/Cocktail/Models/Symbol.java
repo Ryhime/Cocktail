@@ -22,9 +22,9 @@ public class Symbol {
     //region Constructors
 
     /**
-     * Common among all symbol creations
+     * Default Constructor no value for symbol has been set yet
      */
-    private void SetInitValues(VariableType variableType, String name) {
+    public Symbol(VariableType variableType, String name) {
         this.variableType = variableType;
         this.name = name;
 
@@ -36,49 +36,47 @@ public class Symbol {
     }
 
     /**
-     * Default Constructor no value for symbol has been set yet
-     */
-    public Symbol(VariableType variableType, String name) {
-        this.SetInitValues(variableType, name);
-    }
-
-    /**
      * Constructor for an integer symbol
      */
-    public Symbol(VariableType variableType, String name, int value) {
-        this.SetInitValues(variableType, name);
+    public Symbol(String name, int value) {
+        this.name = name;
+        this.variableType = VariableType.INT;
         this.intValue = value;
     }
 
     /**
      * Constructor for a float symbol
      */
-    public Symbol(VariableType variableType, String name, float value) {
-        this.SetInitValues(variableType, name);
+    public Symbol(String name, float value) {
+        this.name = name;
+        this.variableType = VariableType.FLOAT;
         this.floatValue = value;
     }
 
     /**
      * Constructor for a string symbol
      */
-    public Symbol(VariableType variableType, String name, String value) {
-        this.SetInitValues(variableType, name);
+    public Symbol(String name, String value) {
+        this.name = name;
+        this.variableType = VariableType.STRING;
         this.stringValue = value;
     }
 
     /**
      * Constructor for a boolean symbol
      */
-    public Symbol(VariableType variableType, String name, boolean value) {
-        this.SetInitValues(variableType, name);
+    public Symbol(String name, boolean value) {
+        this.name = name;
+        this.variableType = VariableType.BOOLEAN;
         this.booleanValue = value;
     }
 
     /**
      * Constructor for a char symbol
      */
-    public Symbol(VariableType variableType, String name, char value) {
-        this.SetInitValues(variableType, name);
+    public Symbol(String name, char value) {
+        this.name = name;
+        this.variableType = VariableType.CHAR;
         this.charValue = value;
     }
 
