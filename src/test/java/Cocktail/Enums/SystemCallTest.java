@@ -1,4 +1,4 @@
-package Cocktail;
+package Cocktail.Enums;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

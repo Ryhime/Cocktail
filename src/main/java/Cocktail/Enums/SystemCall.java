@@ -1,9 +1,9 @@
-package Cocktail;
+package Cocktail.Enums;
 
 /**
  * System call enum
  */
-enum SystemCall
+public enum SystemCall
 { 
     EXIT(1), WRITE(4); 
   

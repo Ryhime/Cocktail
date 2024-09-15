@@ -1,5 +1,5 @@
-Cocktail/SystemCallTest.class
-Cocktail/SymbolTest.class
-Cocktail/VariableTypeTest.class
-Cocktail/CodeGenTest.class
+Cocktail/Backend/CodeGenTest.class
+Cocktail/Enums/VariableTypeTest.class
+Cocktail/Enums/SystemCallTest.class
+Cocktail/Models/SymbolTest.class
 Cocktail/MainTest.class

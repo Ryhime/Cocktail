@@ -1,8 +1,8 @@
-package Cocktail;
+package Cocktail.Models;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import org.junit.jupiter.api.Test;
+import Cocktail.Enums.VariableType;
 
 /**
  * Unit test for simple App.
