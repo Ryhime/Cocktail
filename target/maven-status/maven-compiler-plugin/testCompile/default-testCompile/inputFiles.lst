@@ -1,1 +1,5 @@
-/home/ryhime/Desktop/Programming/Cocktail/src/test/java/Cocktail/AppTest.java
+/home/ryhime/Desktop/Programming/Cocktail/src/test/java/Cocktail/Backend/CodeGenTest.java
+/home/ryhime/Desktop/Programming/Cocktail/src/test/java/Cocktail/Enums/SystemCallTest.java
+/home/ryhime/Desktop/Programming/Cocktail/src/test/java/Cocktail/Enums/VariableTypeTest.java
+/home/ryhime/Desktop/Programming/Cocktail/src/test/java/Cocktail/MainTest.java
+/home/ryhime/Desktop/Programming/Cocktail/src/test/java/Cocktail/Models/SymbolTest.java

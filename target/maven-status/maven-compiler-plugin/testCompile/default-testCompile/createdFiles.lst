@@ -1,1 +1,5 @@
-Cocktail/AppTest.class
+Cocktail/Backend/CodeGenTest.class
+Cocktail/Enums/VariableTypeTest.class
+Cocktail/Enums/SystemCallTest.class
+Cocktail/Models/SymbolTest.class
+Cocktail/MainTest.class
