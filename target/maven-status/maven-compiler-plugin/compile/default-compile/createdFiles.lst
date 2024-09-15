@@ -1,6 +1,6 @@
-Cocktail/Symbol.class
+Cocktail/Models/Symbol$1.class
+Cocktail/Enums/SystemCall.class
+Cocktail/Models/Symbol.class
 Cocktail/Main.class
-Cocktail/Symbol$1.class
-Cocktail/VariableType.class
-Cocktail/CodeGen.class
-Cocktail/SystemCall.class
+Cocktail/Backend/CodeGen.class
+Cocktail/Enums/VariableType.class

@@ -1,6 +1,6 @@
-package Cocktail;
+package Cocktail.Enums;
 
-enum VariableType {
+public enum VariableType {
     INT,
     FLOAT,
     STRING,

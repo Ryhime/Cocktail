@@ -1,4 +1,8 @@
-package Cocktail;
+package Cocktail.Backend;
+
+import Cocktail.Enums.SystemCall;
+import Cocktail.Enums.VariableType;
+import Cocktail.Models.Symbol;
 import java.io.File;
 import java.io.FileWriter;
 

@@ -1,4 +1,5 @@
-package Cocktail;
+package Cocktail.Models;
+import Cocktail.Enums.VariableType;
 
 /**
  * A class to represent a basic symbol in the symbol table
