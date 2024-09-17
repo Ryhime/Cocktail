@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-11-openjdk-amd64/lib"/>
-    <property name="sun.java.command" value="/home/ryhime/Desktop/Programming/Cocktail/target/surefire/surefirebooter-20240914213911427_3.jar /home/ryhime/Desktop/Programming/Cocktail/target/surefire 2024-09-14T21-39-11_376-jvmRun1 surefire-20240914213911427_1tmp surefire_0-20240914213911427_2tmp"/>
+    <property name="sun.java.command" value="/home/ryhime/Desktop/Programming/Cocktail/target/surefire/surefirebooter-20240917104722041_3.jar /home/ryhime/Desktop/Programming/Cocktail/target/surefire 2024-09-17T10-47-21_982-jvmRun1 surefire-20240917104722041_1tmp surefire_0-20240917104722041_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/home/ryhime/Desktop/Programming/Cocktail/target/test-classes:/home/ryhime/Desktop/Programming/Cocktail/target/classes:/home/ryhime/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.0/junit-jupiter-api-5.11.0.jar:/home/ryhime/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/home/ryhime/.m2/repository/org/junit/platform/junit-platform-commons/1.11.0/junit-platform-commons-1.11.0.jar:/home/ryhime/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/ryhime/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.0/junit-jupiter-params-5.11.0.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -32,12 +32,12 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/home/ryhime/Desktop/Programming/Cocktail/target/surefire/surefirebooter-20240914213911427_3.jar"/>
+    <property name="surefire.real.class.path" value="/home/ryhime/Desktop/Programming/Cocktail/target/surefire/surefirebooter-20240917104722041_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="11.0.24+8-post-Ubuntu-1ubuntu322.04"/>
     <property name="user.name" value="ryhime"/>
     <property name="path.separator" value=":"/>
-    <property name="os.version" value="5.15.0-121-generic"/>
+    <property name="os.version" value="5.15.0-122-generic"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="file.encoding" value="UTF-8"/>
     <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
@@ -58,6 +58,6 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="WriteSystemCall" classname="Cocktail.Enums.SystemCallTest" time="0.0"/>
+  <testcase name="WriteSystemCall" classname="Cocktail.Enums.SystemCallTest" time="0.001"/>
   <testcase name="ExitSystemCall" classname="Cocktail.Enums.SystemCallTest" time="0.0"/>
 </testsuite>

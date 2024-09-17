@@ -13,7 +13,7 @@ _start:
 	int 0x80
 	mov eax, 4
 	mov ebx, 1
-	mov ecx, Character
+	mov ecx, Integer
 	mov edx, 1
 	int 0x80
 	mov eax, 1
@@ -21,6 +21,6 @@ _start:
 	int 0x80
 
 section .data:
-	hello: dd "Hello, World!"
+	hello: db "Hello, World!"
 	Integer: dd 5
-	Character: dd "a"
+	Character: db "a"

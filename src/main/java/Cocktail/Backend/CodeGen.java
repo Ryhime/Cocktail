@@ -33,7 +33,7 @@ public class CodeGen {
         this.createAssemblyHeaderSection();
         this.createAssemblyTextSection();
         this.createWriteSystemCall(1, "hello", 14);
-        this.createWriteSystemCall(1, "Character", 1);
+        this.createWriteSystemCall(1, "Integer", 1);
         this.createExitSystemCall(0);
 
         this.createAssemblyDataSection();
@@ -135,13 +135,30 @@ public class CodeGen {
     private void declareConstantValue(Symbol symbol) {
         try {
             String value;
-            if (symbol.getVariableType() == VariableType.STRING || symbol.getVariableType() == VariableType.CHAR) {
-                value = "\"" + symbol.valueToString() + "\"";
-            } else {
-                value = symbol.valueToString();
+            String declarationSize;
+            switch (symbol.getVariableType()) {
+                case INT:
+                case FLOAT:
+                    declarationSize = "dd";
+                    value = symbol.valueToString();
+                    break;
+                case STRING:
+                case CHAR:
+                    declarationSize = "db";
+                    value = "\"" + symbol.valueToString() + "\"";
+                    break;
+                case BOOLEAN:
+                case UNDEFINED:
+                case NULL:
+                    declarationSize = "db";
+                    value = symbol.valueToString();
+                    break;
+                default:
+                    System.out.println("Symbol Type not found when declaring constant value.");
+                    return;
             }
 
-            this.fileWriter.write("\t" + symbol.getName() + ": dd " + value + "\n");
+            this.fileWriter.write("\t" + symbol.getName() + ": "+ declarationSize + ' ' + value + "\n");
         }
         catch (Exception e) {
             // Catch Error
